@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OuterSource", "OuterSource"
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resume.Test", "Resume.Test\Resume.Test.csproj", "{ECDD69F8-93EB-4E89-A168-75A8DE8FA5AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,5 +19,9 @@ Global
 		{5AEA0625-DA6D-42AA-B3EB-D2BEE7031D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AEA0625-DA6D-42AA-B3EB-D2BEE7031D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AEA0625-DA6D-42AA-B3EB-D2BEE7031D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECDD69F8-93EB-4E89-A168-75A8DE8FA5AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECDD69F8-93EB-4E89-A168-75A8DE8FA5AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECDD69F8-93EB-4E89-A168-75A8DE8FA5AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECDD69F8-93EB-4E89-A168-75A8DE8FA5AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
