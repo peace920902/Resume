@@ -1,0 +1,45 @@
+﻿name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Restore NuGet packages
+        working-directory: ./src/Resume
+        run: dotnet restore
+
+      - name: Build and Publish
+        run: |
+          dotnet build ./src/Resume/Resume.csproj --no-restore
+          dotnet publish --no-restore -c Release -o ./publish ./src/Resume/Resume.csproj
+          
+      - name: Replace base href 
+        run: sed -i 's/<base href="\/" \/>/<base href="\/Resume\/" \/>/g' ./publish/wwwroot/index.html
+
+      - name: Add .nojekyll 
+        run: touch publish/wwwroot/.nojekyll
+
+      - name: Change notfound page to custom page
+        run: cp publish/wwwroot/index.html publish/wwwroot/404.html
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          branch: gh-pages
+          cleanup: 'false'
+          folder: ./publish/wwwroot
+          token: ${{ secrets.GH_TOKEN }}
+          
